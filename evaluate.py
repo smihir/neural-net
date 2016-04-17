@@ -40,7 +40,7 @@ def plot2(trainf):
 
     #nn.evaluate(folds, epochs, learning_rate)
     nn.evaluate(5, 50, 0.1)
-    acc1 = nn.evaluate_roc()
+    acc1 = nn.evaluate_accuracy()
 
     nn.clean_training_data()
     nn.evaluate(10, 50, 0.1)

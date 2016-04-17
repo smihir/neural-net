@@ -130,22 +130,18 @@ class NeuralNet:
             else:
                 an += 1
 
-        print(ap, an)
         tp = 0
         fp = 0
         prev_aclass = None
         roc_x = list()
         roc_y = list()
         for r in results:
-            #prediction = 0 if r[1][1] <= 0.5 else 1
             aclass = self.raw_data['data'][r[0]][-1]
             actual = self.classifier_dictionary[aclass]
             if prev_aclass and prev_aclass != aclass:
                 roc_x.append(fp / an)
                 roc_y.append(tp / ap)
-                #print(prev_aclass, aclass, fp, fp / an, tp, tp / ap)
             prev_aclass = aclass
-
             if actual == 1:
                 tp += 1
             else:
